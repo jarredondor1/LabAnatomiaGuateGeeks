@@ -8,11 +8,11 @@ def vec(v):return dict(zip(('x','y','z'),v))
 def color(hex):return dict(zip(('r','g','b','a'),[int(hex[i:i+2],16)/255 for i in (0,2,4)]+[1]))
 specs=[('skeleton','Skeleton','Óseo','ead7ad',True,['bone organ']),('muscular','Muscles','Muscular','b75565',False,['muscle organ']),('arterial','Arteries','Arterias','cf5460',False,['artery']),('venous','Veins','Venas','568bc5',False,['vein']),('nervous','Nervous','Nervioso','e9c05d',False,['nerve','brain','spinal cord']),('respiratory','Respiratory','Respiratorio','85c2d2',True,['lung','trachea','bronch','larynx']),('digestive','Digestive','Digestivo','ce9b69',True,['liver','stomach','intestine','colon','esophagus','pancreas','gallbladder','rectum','tongue','tooth','pharynx']),('urinary','Urinary','Urinario','ae819f',False,['kidney','ureter','urinary','urethra']),('reproductive','Reproductive','Reproductivo','b27da8',False,['testis','prostate','penis','seminal','epididymis','ductus deferens']),('endocrine','Endocrine','Endocrino','dda954',False,['thyroid','adrenal','pituitary','pineal']),('lymphatic','Lymphatic','Linfático','81b995',False,['lymph','spleen','thymus']),('cardiovascular','Heart','Corazón','dc6d78',True,['heart','cardiac','atrium','ventricle']),('connective','Connective','Conectivo','b3c4cb',False,['cartilage','ligament','tendon']),('integumentary','Integumentary','Tegumentario','c7a78d',False,['skin','nail','hair']),('other','Other','Otras estructuras','9bafb5',False,[])]
 concepts=collections.defaultdict(set); names={}; reverse=collections.defaultdict(list)
-for row in rows('isa_element_parts.txt'):
+for row in rows('isa_element_parts.txt')+rows('partof_element_parts.txt'):
  cid=row['concept id'];names[cid]=row['name'];concepts[cid].add(row['element file id'])
 for cid,elements in concepts.items():
  for element in elements:reverse[element].append(cid)
-relations=rows('isa_inclusion_relation_list.txt')
+relations=rows('isa_inclusion_relation_list.txt')+rows('partof_inclusion_relation_list.txt')
 parents=collections.defaultdict(list)
 for r in relations:parents[r['child id']].append(r['parent id'])
 archive=SRC/'isa_BP3D_4.0_obj_99.zip'
@@ -50,20 +50,27 @@ with zipfile.ZipFile(archive) as z:
   translations={'heart':'Corazón','liver':'Hígado','stomach':'Estómago','brain':'Cerebro','right lung':'Pulmón derecho','left lung':'Pulmón izquierdo','right femur':'Fémur derecho','left femur':'Fémur izquierdo','right kidney':'Riñón derecho','left kidney':'Riñón izquierdo'}
   if name.lower() in translations:display=translations[name.lower()]
   # Whole-organ concepts are also indexed on constituent meshes, preserving FMA lookup.
-  terms=[names[c] for c in cs if len(concepts[c])<=20]+cs[:6]
+  terms=[names[c] for c in cs if len(concepts[c])<=100]+cs[:6]
   for en,es in translations.items():
    if en in [v.lower() for v in terms]:terms.append(es)
   d=dict(id=mid,canonicalName=name,displayName=display,latinName='',synonyms=specific,systemId=system,category='BodyParts3D 4.0',description='Estructura anatómica de referencia. Nombre original: '+name+'.',meshReference=f'Anatomy/Geometry/{system}/{mid}',materialReference=system,originalPosition=vec(center),originalRotation=dict(x=0,y=0,z=0,w=1),originalScale=vec((1,1,1)),bounds={'m_Center':vec((0,0,0)),'m_Extent':vec([s/2 for s in size])},parentStructure=cid,childStructures=[],searchableTerms=terms,vertexCount=len(verts),triangleCount=len(faces)//3)
   structures.append(d);by_system[system]['structures'].append(mid)
   if index%250==0:print(index,len(files),flush=True)
+used={d['meshReference'].removeprefix('Anatomy/')+'.bytes' for d in structures}
+for old in (OUT/'Geometry').rglob('*.bytes'):
+ if str(old.relative_to(OUT)) not in used:
+  old.unlink()
+  meta=Path(str(old)+'.meta')
+  if meta.exists():meta.unlink()
 catalog=dict(dataset='BodyParts3D 4.0 · adult male reference',attribution='BodyParts3D, © The Database Center for Life Science licensed under CC Attribution 4.0 International',systems=systems,structures=structures)
 (OUT/'anatomy_catalog.json').write_text(json.dumps(catalog,ensure_ascii=False,separators=(',',':')))
 (ROOT/'Assets/AnatomyLab/Data/Catalog/concepts.json').write_text(json.dumps([dict(id=c,name=names[c],meshes=sorted(v),parents=parents[c]) for c,v in concepts.items()],ensure_ascii=False))
 # Basic activities use dataset names only: no unvalidated medical claims.
 ed=[]
 for term in ['heart','lung','liver','stomach','brain']:
- candidates=[d for d in structures if term in d['canonicalName'].lower()]
- candidates.sort(key=lambda d:(len(d['canonicalName']),-d['triangleCount']))
+ candidates=[d for d in structures if term in d['canonicalName'].lower() or any(term in v.lower() for v in d['searchableTerms'])]
+ expected={'heart':'cardiovascular','lung':'respiratory','liver':'digestive','stomach':'digestive','brain':'nervous'}[term]
+ candidates.sort(key=lambda d:(d['systemId']!=expected,-d['triangleCount']))
  if candidates:
   d=candidates[0];ed.append(dict(id=d['id'],title=d['displayName'],function='Contenido educativo DEMO: identificación de estructuras; explicación funcional pendiente de revisión docente.',location='Observa su posición en el modelo de referencia.',source='BodyParts3D 4.0 · '+d['parentStructure'],related=[]))
 (OUT/'education.json').write_text(json.dumps(dict(entries=ed),ensure_ascii=False))

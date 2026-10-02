@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<test-run id="2" testcasecount="9" result="Passed" total="9" passed="9" failed="0" inconclusive="0" skipped="0" asserts="0" engine-version="3.5.0.0" clr-version="4.0.30319.42000" start-time="2026-10-02 22:12:25Z" end-time="2026-10-02 22:12:26Z" duration="1.1370369">
+  <test-suite type="TestSuite" id="1000" name="GuateGeeks Anatomy Lab VR" fullname="GuateGeeks Anatomy Lab VR" runstate="Runnable" testcasecount="9" result="Passed" start-time="2026-10-02 22:12:25Z" end-time="2026-10-02 22:12:26Z" duration="1.137037" total="9" passed="9" failed="0" inconclusive="0" skipped="0" asserts="0">
+    <properties>
+      <property name="platform" value="EditMode" />
+    </properties>
+    <test-suite type="Assembly" id="1011" name="Anatomy.EditMode.dll" fullname="/Users/joaquinarredondo/Documents/ChatGPT/3D/BodyVR/Library/ScriptAssemblies/Anatomy.EditMode.dll" runstate="Runnable" testcasecount="9" result="Passed" start-time="2026-10-02 22:12:25Z" end-time="2026-10-02 22:12:26Z" duration="1.134428" total="9" passed="9" failed="0" inconclusive="0" skipped="0" asserts="0">
+      <properties>
+        <property name="_PID" value="94945" />
+        <property name="_APPDOMAIN" value="Unity Child Domain" />
+        <property name="platform" value="EditMode" />
+        <property name="EditorOnly" value="True" />
+      </properties>
+      <test-suite type="TestSuite" id="1012" name="GuateGeeks" fullname="GuateGeeks" runstate="Runnable" testcasecount="9" result="Passed" start-time="2026-10-02 22:12:25Z" end-time="2026-10-02 22:12:26Z" duration="1.134338" total="9" passed="9" failed="0" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <test-suite type="TestSuite" id="1013" name="AnatomyLab" fullname="GuateGeeks.AnatomyLab" runstate="Runnable" testcasecount="9" result="Passed" start-time="2026-10-02 22:12:25Z" end-time="2026-10-02 22:12:26Z" duration="1.134302" total="9" passed="9" failed="0" inconclusive="0" skipped="0" asserts="0">
+          <properties />
+          <test-suite type="TestSuite" id="1014" name="Tests" fullname="GuateGeeks.AnatomyLab.Tests" runstate="Runnable" testcasecount="9" result="Passed" start-time="2026-10-02 22:12:25Z" end-time="2026-10-02 22:12:26Z" duration="1.134249" total="9" passed="9" failed="0" inconclusive="0" skipped="0" asserts="0">
+            <properties />
+            <test-suite type="TestFixture" id="1001" name="CatalogTests" fullname="GuateGeeks.AnatomyLab.Tests.CatalogTests" classname="GuateGeeks.AnatomyLab.Tests.CatalogTests" runstate="Runnable" testcasecount="9" result="Passed" start-time="2026-10-02 22:12:25Z" end-time="2026-10-02 22:12:26Z" duration="1.133861" total="9" passed="9" failed="0" inconclusive="0" skipped="0" asserts="0">
+              <properties />
+              <test-case id="1010" name="AllMeshesHaveValidIndicesAndFiniteBounds" fullname="GuateGeeks.AnatomyLab.Tests.CatalogTests.AllMeshesHaveValidIndicesAndFiniteBounds" methodname="AllMeshesHaveValidIndicesAndFiniteBounds" classname="GuateGeeks.AnatomyLab.Tests.CatalogTests" runstate="Runnable" seed="1307082990" result="Passed" start-time="2026-10-02 22:12:25Z" end-time="2026-10-02 22:12:26Z" duration="0.903748" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1002" name="CompleteCatalogHas2234UniqueMeshes" fullname="GuateGeeks.AnatomyLab.Tests.CatalogTests.CompleteCatalogHas2234UniqueMeshes" methodname="CompleteCatalogHas2234UniqueMeshes" classname="GuateGeeks.AnatomyLab.Tests.CatalogTests" runstate="Runnable" seed="1581207728" result="Passed" start-time="2026-10-02 22:12:26Z" end-time="2026-10-02 22:12:26Z" duration="0.020525" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1003" name="DuplicateIdsAreRejected" fullname="GuateGeeks.AnatomyLab.Tests.CatalogTests.DuplicateIdsAreRejected" methodname="DuplicateIdsAreRejected" classname="GuateGeeks.AnatomyLab.Tests.CatalogTests" runstate="Runnable" seed="651204519" result="Passed" start-time="2026-10-02 22:12:26Z" end-time="2026-10-02 22:12:26Z" duration="0.025113" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1007" name="ExplosionPreservesOriginalAndHandlesCenter" fullname="GuateGeeks.AnatomyLab.Tests.CatalogTests.ExplosionPreservesOriginalAndHandlesCenter" methodname="ExplosionPreservesOriginalAndHandlesCenter" classname="GuateGeeks.AnatomyLab.Tests.CatalogTests" runstate="Runnable" seed="1600262293" result="Passed" start-time="2026-10-02 22:12:26Z" end-time="2026-10-02 22:12:26Z" duration="0.017753" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1004" name="MissingSystemIsRejected" fullname="GuateGeeks.AnatomyLab.Tests.CatalogTests.MissingSystemIsRejected" methodname="MissingSystemIsRejected" classname="GuateGeeks.AnatomyLab.Tests.CatalogTests" runstate="Runnable" seed="540085215" result="Passed" start-time="2026-10-02 22:12:26Z" end-time="2026-10-02 22:12:26Z" duration="0.017063" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1009" name="NewStateHasImmutableSourceTransform" fullname="GuateGeeks.AnatomyLab.Tests.CatalogTests.NewStateHasImmutableSourceTransform" methodname="NewStateHasImmutableSourceTransform" classname="GuateGeeks.AnatomyLab.Tests.CatalogTests" runstate="Runnable" seed="1496274033" result="Passed" start-time="2026-10-02 22:12:26Z" end-time="2026-10-02 22:12:26Z" duration="0.024754" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1006" name="SearchFiltersSystems" fullname="GuateGeeks.AnatomyLab.Tests.CatalogTests.SearchFiltersSystems" methodname="SearchFiltersSystems" classname="GuateGeeks.AnatomyLab.Tests.CatalogTests" runstate="Runnable" seed="98114740" result="Passed" start-time="2026-10-02 22:12:26Z" end-time="2026-10-02 22:12:26Z" duration="0.047998" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1005" name="SearchFindsEnglishSpanishAndAccents" fullname="GuateGeeks.AnatomyLab.Tests.CatalogTests.SearchFindsEnglishSpanishAndAccents" methodname="SearchFindsEnglishSpanishAndAccents" classname="GuateGeeks.AnatomyLab.Tests.CatalogTests" runstate="Runnable" seed="359388140" result="Passed" start-time="2026-10-02 22:12:26Z" end-time="2026-10-02 22:12:26Z" duration="0.054830" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1008" name="VisibilityIsolationAndResetRestoreDefaults" fullname="GuateGeeks.AnatomyLab.Tests.CatalogTests.VisibilityIsolationAndResetRestoreDefaults" methodname="VisibilityIsolationAndResetRestoreDefaults" classname="GuateGeeks.AnatomyLab.Tests.CatalogTests" runstate="Runnable" seed="2015020827" result="Passed" start-time="2026-10-02 22:12:26Z" end-time="2026-10-02 22:12:26Z" duration="0.016744" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+                <output><![CDATA[Saving results to: /Users/joaquinarredondo/Library/Application Support/GuateGeeks/GuateGeeks Anatomy Lab VR/TestResults.xml
+]]></output>
+              </test-case>
+            </test-suite>
+          </test-suite>
+        </test-suite>
+      </test-suite>
+    </test-suite>
+  </test-suite>
+</test-run>

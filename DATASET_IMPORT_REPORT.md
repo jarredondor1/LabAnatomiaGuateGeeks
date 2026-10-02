@@ -3,7 +3,7 @@
 Source: BodyParts3D 4.0 IS-A 99%.
 
 - Structures: 2234
-- Named concepts: 2905
+- Named concepts: 3432
 - Missing meshes: 0
 - Duplicate mesh IDs: 0
 - Missing metadata: 0
@@ -18,16 +18,16 @@ Source: BodyParts3D 4.0 IS-A 99%.
 
 - skeleton: 204
 - muscular: 403
-- arterial: 610
+- arterial: 611
 - venous: 391
-- nervous: 103
+- nervous: 119
 - respiratory: 103
-- digestive: 105
+- digestive: 127
 - urinary: 6
 - reproductive: 10
-- endocrine: 6
+- endocrine: 5
 - lymphatic: 3
 - cardiovascular: 23
 - connective: 75
 - integumentary: 4
-- other: 188
+- other: 150

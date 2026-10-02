@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<test-run id="2" testcasecount="9" result="Passed" total="9" passed="9" failed="0" inconclusive="0" skipped="0" asserts="0" engine-version="3.5.0.0" clr-version="4.0.30319.42000" start-time="2026-10-02 22:33:22Z" end-time="2026-10-02 22:33:28Z" duration="5.0328515">
+  <test-suite type="TestSuite" id="1018" name="GuateGeeks Anatomy Lab VR" fullname="GuateGeeks Anatomy Lab VR" runstate="Runnable" testcasecount="9" result="Passed" start-time="2026-10-02 22:33:22Z" end-time="2026-10-02 22:33:28Z" duration="5.032852" total="9" passed="9" failed="0" inconclusive="0" skipped="0" asserts="0">
+    <properties>
+      <property name="platform" value="PlayMode" />
+    </properties>
+    <test-suite type="Assembly" id="1011" name="Anatomy.PlayMode.dll" fullname="/Users/joaquinarredondo/Documents/ChatGPT/3D/BodyVR/Library/ScriptAssemblies/Anatomy.PlayMode.dll" runstate="Runnable" testcasecount="9" result="Passed" start-time="2026-10-02 22:33:22Z" end-time="2026-10-02 22:33:28Z" duration="5.029702" total="9" passed="9" failed="0" inconclusive="0" skipped="0" asserts="0">
+      <properties>
+        <property name="_PID" value="97340" />
+        <property name="_APPDOMAIN" value="Unity Child Domain" />
+        <property name="platform" value="PlayMode" />
+        <property name="EditorOnly" value="False" />
+      </properties>
+      <test-suite type="TestSuite" id="1012" name="GuateGeeks" fullname="GuateGeeks" runstate="Runnable" testcasecount="9" result="Passed" start-time="2026-10-02 22:33:22Z" end-time="2026-10-02 22:33:28Z" duration="5.029453" total="9" passed="9" failed="0" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <test-suite type="TestSuite" id="1013" name="AnatomyLab" fullname="GuateGeeks.AnatomyLab" runstate="Runnable" testcasecount="9" result="Passed" start-time="2026-10-02 22:33:22Z" end-time="2026-10-02 22:33:28Z" duration="5.029303" total="9" passed="9" failed="0" inconclusive="0" skipped="0" asserts="0">
+          <properties />
+          <test-suite type="TestSuite" id="1014" name="Tests" fullname="GuateGeeks.AnatomyLab.Tests" runstate="Runnable" testcasecount="9" result="Passed" start-time="2026-10-02 22:33:22Z" end-time="2026-10-02 22:33:28Z" duration="5.029184" total="9" passed="9" failed="0" inconclusive="0" skipped="0" asserts="0">
+            <properties />
+            <test-suite type="TestFixture" id="1001" name="InteractionTests" fullname="GuateGeeks.AnatomyLab.Tests.InteractionTests" classname="GuateGeeks.AnatomyLab.Tests.InteractionTests" runstate="Runnable" testcasecount="9" result="Passed" start-time="2026-10-02 22:33:22Z" end-time="2026-10-02 22:33:28Z" duration="5.028686" total="9" passed="9" failed="0" inconclusive="0" skipped="0" asserts="0">
+              <properties />
+              <test-case id="1010" name="ExplodedStructuresRemainSelectable" fullname="GuateGeeks.AnatomyLab.Tests.InteractionTests.ExplodedStructuresRemainSelectable" methodname="ExplodedStructuresRemainSelectable" classname="GuateGeeks.AnatomyLab.Tests.InteractionTests" runstate="Runnable" seed="172035655" result="Passed" start-time="2026-10-02 22:33:22Z" end-time="2026-10-02 22:33:24Z" duration="1.248661" asserts="0">
+                <properties>
+                  <property name="_JOINTYPE" value="UnityCombinatorial" />
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1005" name="ExtractionAndReturnRemovePhysics" fullname="GuateGeeks.AnatomyLab.Tests.InteractionTests.ExtractionAndReturnRemovePhysics" methodname="ExtractionAndReturnRemovePhysics" classname="GuateGeeks.AnatomyLab.Tests.InteractionTests" runstate="Runnable" seed="1722365650" result="Passed" start-time="2026-10-02 22:33:24Z" end-time="2026-10-02 22:33:25Z" duration="1.389998" asserts="0">
+                <properties>
+                  <property name="_JOINTYPE" value="UnityCombinatorial" />
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1002" name="FullLabVisualSmoke" fullname="GuateGeeks.AnatomyLab.Tests.InteractionTests.FullLabVisualSmoke" methodname="FullLabVisualSmoke" classname="GuateGeeks.AnatomyLab.Tests.InteractionTests" runstate="Runnable" seed="1845505729" result="Passed" start-time="2026-10-02 22:33:25Z" end-time="2026-10-02 22:33:26Z" duration="0.393704" asserts="0">
+                <properties>
+                  <property name="_JOINTYPE" value="UnityCombinatorial" />
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1003" name="PuzzleCountsOnlySnappedPlacements" fullname="GuateGeeks.AnatomyLab.Tests.InteractionTests.PuzzleCountsOnlySnappedPlacements" methodname="PuzzleCountsOnlySnappedPlacements" classname="GuateGeeks.AnatomyLab.Tests.InteractionTests" runstate="Runnable" seed="351057492" result="Passed" start-time="2026-10-02 22:33:26Z" end-time="2026-10-02 22:33:26Z" duration="0.237122" asserts="0">
+                <properties>
+                  <property name="_JOINTYPE" value="UnityCombinatorial" />
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1008" name="QuizFeedbackTracksAttempts" fullname="GuateGeeks.AnatomyLab.Tests.InteractionTests.QuizFeedbackTracksAttempts" methodname="QuizFeedbackTracksAttempts" classname="GuateGeeks.AnatomyLab.Tests.InteractionTests" runstate="Runnable" seed="1604839588" result="Passed" start-time="2026-10-02 22:33:26Z" end-time="2026-10-02 22:33:26Z" duration="0.096817" asserts="0">
+                <properties>
+                  <property name="_JOINTYPE" value="UnityCombinatorial" />
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1009" name="SearchLoadsHiddenSystemAndFocusDoesNotMoveCamera" fullname="GuateGeeks.AnatomyLab.Tests.InteractionTests.SearchLoadsHiddenSystemAndFocusDoesNotMoveCamera" methodname="SearchLoadsHiddenSystemAndFocusDoesNotMoveCamera" classname="GuateGeeks.AnatomyLab.Tests.InteractionTests" runstate="Runnable" seed="2058550277" result="Passed" start-time="2026-10-02 22:33:26Z" end-time="2026-10-02 22:33:26Z" duration="0.159105" asserts="0">
+                <properties>
+                  <property name="_JOINTYPE" value="UnityCombinatorial" />
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1004" name="SelectionAndIsolation" fullname="GuateGeeks.AnatomyLab.Tests.InteractionTests.SelectionAndIsolation" methodname="SelectionAndIsolation" classname="GuateGeeks.AnatomyLab.Tests.InteractionTests" runstate="Runnable" seed="104560934" result="Passed" start-time="2026-10-02 22:33:26Z" end-time="2026-10-02 22:33:26Z" duration="0.106716" asserts="0">
+                <properties>
+                  <property name="_JOINTYPE" value="UnityCombinatorial" />
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1006" name="SnapRequiresPositionAndRotation" fullname="GuateGeeks.AnatomyLab.Tests.InteractionTests.SnapRequiresPositionAndRotation" methodname="SnapRequiresPositionAndRotation" classname="GuateGeeks.AnatomyLab.Tests.InteractionTests" runstate="Runnable" seed="977836189" result="Passed" start-time="2026-10-02 22:33:26Z" end-time="2026-10-02 22:33:26Z" duration="0.105591" asserts="0">
+                <properties>
+                  <property name="_JOINTYPE" value="UnityCombinatorial" />
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1007" name="SystemToggleAndReset" fullname="GuateGeeks.AnatomyLab.Tests.InteractionTests.SystemToggleAndReset" methodname="SystemToggleAndReset" classname="GuateGeeks.AnatomyLab.Tests.InteractionTests" runstate="Runnable" seed="1215251426" result="Passed" start-time="2026-10-02 22:33:26Z" end-time="2026-10-02 22:33:28Z" duration="1.285802" asserts="0">
+                <properties>
+                  <property name="_JOINTYPE" value="UnityCombinatorial" />
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+                <output><![CDATA[Saving results to: /Users/joaquinarredondo/Library/Application Support/GuateGeeks/GuateGeeks Anatomy Lab VR/TestResults.xml
+]]></output>
+              </test-case>
+            </test-suite>
+          </test-suite>
+        </test-suite>
+      </test-suite>
+    </test-suite>
+  </test-suite>
+</test-run>
