@@ -36,7 +36,7 @@ public sealed class LocalDatasetProvider : IAnatomyDatasetProvider {
 public enum StructureVisibility { Opaque, Transparent, Hidden }
 public sealed class StructureState {
  public readonly AnatomyStructure Data; public GameObject Object; public Mesh Mesh; public MeshRenderer Renderer;
- public StructureVisibility Visibility; public bool Extracted, Returning; public Vector3 Target;
+ public StructureVisibility Visibility; public bool Extracted, Returning, Moving; public Vector3 Target;
  public StructureState(AnatomyStructure data) {Data=data; Target=data.originalPosition;}
 }
 }

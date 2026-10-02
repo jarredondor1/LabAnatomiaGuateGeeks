@@ -25,7 +25,7 @@ public sealed class LabInput : MonoBehaviour {
  if(mouse.rightButton.isPressed)Lab.Rotate(-mouse.delta.ReadValue().x*.15f);
  if(mouse.scroll.ReadValue().y!=0)Lab.Scale(mouse.scroll.ReadValue().y>0?1.03f:.97f);
  var rayDesktop=Lab.ViewCamera.ScreenPointToRay(mouse.position.ReadValue());
- if(kb.gKey.wasPressedThisFrame&&Lab.Selection.Selected!=null&&Lab.Selection.Selected.Extracted)dragging=!dragging;
+ if(kb.gKey.wasPressedThisFrame&&Lab.Selection.Selected!=null&&Lab.Selection.Selected.Extracted){dragging=!dragging;if(!dragging)Lab.Selection.Selected.Object.GetComponent<GuateGeeks.AnatomyLab.Interaction.StructureInteractionAdapter>()?.ReleaseDesktop();}
  if(dragging&&Lab.Selection.Selected!=null&&Lab.Selection.Selected.Extracted){var s=Lab.Selection.Selected;s.Object.transform.position=rayDesktop.GetPoint(.9f);if(kb.qKey.isPressed)s.Object.transform.Rotate(Vector3.up,-60*Time.deltaTime);if(kb.eKey.isPressed)s.Object.transform.Rotate(Vector3.up,60*Time.deltaTime);}
  bool over=EventSystem.current!=null&&EventSystem.current.IsPointerOverGameObject();if(over)return;
  if(Time.unscaledTime>nextPick){Lab.Selection.Hover(Lab.Pick(rayDesktop));nextPick=Time.unscaledTime+.065f;}if(mouse.leftButton.wasPressedThisFrame)Lab.Selection.Select(Lab.Pick(rayDesktop));

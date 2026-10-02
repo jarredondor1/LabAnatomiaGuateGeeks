@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.InputSystem;
 using GuateGeeks.AnatomyLab.Core;
+using GuateGeeks.AnatomyLab.Utilities;
 namespace GuateGeeks.AnatomyLab.UI {
 public sealed class LabPanel : MonoBehaviour {
  public LabRuntime Lab;public Transform Content;public Text Status,Detail,Tutorial;public GameObject QuickPanel;
@@ -41,7 +42,7 @@ public sealed class LabPanel : MonoBehaviour {
  var selected=Lab.Selection.Selected;if(selected==null){Label("Selecciona una estructura del cuerpo\no utiliza el buscador.",90,24);Button("BUSCAR",()=>Open("BUSCAR"));break;}
  var data=selected.Data;Label(Lab.Name(data),70,27);Label(data.systemId+" · "+data.id+" · "+data.parentStructure,38,17);Label(data.description,76,19);
  if(Page=="APRENDER"){var e=Lab.Education.Find(data.id);Label(e==null?"Identificación anatómica.\nExplicación funcional pendiente de revisión docente.":e.function+"\n"+e.location,120,20);Label(e==null?"Fuente: BodyParts3D 4.0":e.source,42,16);}
- Button("AISLAR / SALIR DEL AISLAMIENTO",()=>{if(Lab.Isolated)Lab.ExitIsolation();else Lab.Isolate();});Button("OCULTAR",Lab.Hide);Button("TRANSPARENCIA",Lab.ToggleTransparency);Button("EXTRAER",Lab.ExtractSelected);Button("DEVOLVER A POSICIÓN",Lab.ReturnSelected);Button("ENFOCAR",()=>Lab.FocusStructure(data.id));Button("CERRAR SELECCIÓN",()=>{Lab.Selection.Clear();Open("ANATOMÍA");});break;
+ Button("AISLAR / SALIR DEL AISLAMIENTO",()=>{if(Lab.Isolated)Lab.ExitIsolation();else Lab.Isolate();});Button("OCULTAR",Lab.Hide);Button("TRANSPARENCIA",Lab.ToggleTransparency);Button("TRANSPARENCIA DEL SISTEMA",()=>Lab.SetSystemTransparency(data.systemId));Button("EXTRAER",Lab.ExtractSelected);Button("DEVOLVER A POSICIÓN",Lab.ReturnSelected);Button("ENFOCAR",()=>Lab.FocusStructure(data.id));Button("CERRAR SELECCIÓN",()=>{Lab.Selection.Clear();Open("ANATOMÍA");});break;
  case "EXPLORAR":
  Label("EXPLODED VIEW",50,27);Label("Separación radial de las piezas\nLa cámara permanece en tu control.",72);
  for(int i=0;i<=4;i++){float value=i*.25f;Button((i*25)+" %",()=>Lab.SetExplosion(value),38);}
@@ -57,6 +58,7 @@ public sealed class LabPanel : MonoBehaviour {
  Button("PERFORMANCE",()=>QualitySettings.SetQualityLevel(0));Button("BALANCED",()=>QualitySettings.SetQualityLevel(1));Button("QUALITY",()=>QualitySettings.SetQualityLevel(2));
  Button("DESCARGAR SISTEMAS OCULTOS",()=>{foreach(var s in Lab.Catalog.systems)if(!Lab.Systems.Visible[s.id])StartCoroutine(Lab.Streaming.UnloadSystemAsync(s.id));});Label("Escritorio: clic seleccionar · arrastre derecho girar\nR restablecer · E extraer · G mover pieza\nT devolver · espacio panel rápido\nQuest: gatillo seleccionar · grip agarrar\nStick derecho: giro voluntario de 30°",130,18);break;
  }
+ foreach(var text in GetComponentsInChildren<Text>(true))text.text=LocalizationService.Translate(text.text,Lab.Language);
  }
  void Label(string text,int height,int size=22){var r=Rect("Label",Content,0,-row,650,height);var t=r.gameObject.AddComponent<Text>();t.font=font;t.fontSize=size;t.color=new Color(.79f,.9f,.94f);t.text=text;t.supportRichText=false;row+=height+4;}
  void Button(string text,Action click,int height=42){CreateButton(text,Content,0,-row,650,height,click);row+=height+7;}

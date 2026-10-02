@@ -7,7 +7,7 @@ BodyParts3D, © The Database Center for Life Science licensed under CC Attributi
 - Fuente: https://dbarchive.biosciencedbc.jp/en/bodyparts3d/download.html
 - Licencia oficial (actualizada 2025-02-27; revisada 2026-10-02): https://dbarchive.biosciencedbc.jp/en/bodyparts3d/lic.html
 - Términos: https://creativecommons.org/licenses/by/4.0/
-- Archivos: isa_BP3D_4.0_obj_99.zip, isa_parts_list_e.txt, isa_element_parts.txt, isa_inclusion_relation_list.txt.
+- Archivos: isa_BP3D_4.0_obj_99.zip, isa_parts_list_e.txt, isa_element_parts.txt, isa_inclusion_relation_list.txt, partof_parts_list_e.txt, partof_element_parts.txt, partof_inclusion_relation_list.txt.
 - Las geometrías y metadata derivadas conservan CC BY 4.0. Mantener esta atribución en redistribuciones y dentro de la aplicación.
 - Adaptaciones: conversión OBJ a geometría binaria; cambio de ejes, inversión de winding, escala uniforme a 1.75 m, pivotes locales centrados, agrupación heurística por sistemas, términos de búsqueda y traducciones básicas al español. No se ha realizado una nueva simplificación sobre la reducción oficial.
 - Los comentarios originales de algunos OBJ citan una licencia histórica; los archivos fuente se conservan intactos. Este proyecto se basa en la licencia vigente publicada por el titular.

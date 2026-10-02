@@ -27,7 +27,7 @@ public sealed class LabRuntime : MonoBehaviour {
  Volume=PlayerPrefs.GetFloat("anatomy.volume",.25f);Language=PlayerPrefs.GetString("anatomy.language","es");LeftHanded=PlayerPrefs.GetInt("anatomy.leftHanded",0)==1;TutorialDone=PlayerPrefs.GetInt("anatomy.tutorial",0)==1;
  foreach(var sys in Catalog.systems){colors[sys.id]=sys.defaultColor;Systems.Visible[sys.id]=PlayerPrefs.GetInt("anatomy.system."+sys.id,sys.defaultVisibility?1:0)==1;}
  initialBodyPosition=Body.position;initialBodyRotation=Body.rotation;
- Streaming=gameObject.AddComponent<AnatomyStreamingManager>();Streaming.Initialize(Catalog,Body,Opaque,Transparent);Streaming.Added+=s=>{Refresh(s);Changed?.Invoke();};Streaming.Removed+=id=>{if(Selection.Selected?.Data.id==id)Selection.Clear();};
+ Streaming=gameObject.AddComponent<AnatomyStreamingManager>();Streaming.Initialize(Catalog,Body,Opaque,Transparent);Streaming.Added+=s=>{s.Moving=Explosion.Factor>0;Refresh(s);Changed?.Invoke();};Streaming.Removed+=id=>{if(Selection.Selected?.Data.id==id)Selection.Clear();};
  Systems.Changed+=(id,on)=>{if(on)StartCoroutine(Streaming.LoadSystemAsync(id));foreach(var s in Streaming.Loaded.Values)if(s.Data.systemId==id)Refresh(s);PlayerPrefs.SetInt("anatomy.system."+id,on?1:0);Changed?.Invoke();};
  Selection.Changed+=Selected;Selection.HoverChanged+=s=>{if(s!=null)AdvanceTutorial(0);RefreshAll();Changed?.Invoke();};
  audioSource=gameObject.AddComponent<AudioSource>();audioSource.spatialBlend=0; tone=AudioClip.Create("Generated feedback",2205,1,22050,false);var samples=new float[2205];for(int i=0;i<samples.Length;i++)samples[i]=Mathf.Sin(i*2*Mathf.PI*660/22050)*.12f*(1-i/(float)samples.Length);tone.SetData(samples,0);
@@ -58,7 +58,7 @@ public sealed class LabRuntime : MonoBehaviour {
  ExitIsolation();Systems.ShowSystem(data.systemId);while(Streaming.Loading.Contains(data.systemId))yield return null;
  if(Streaming.Loaded.TryGetValue(id,out var s)){s.Visibility=StructureVisibility.Opaque;Selection.Select(s);FocusStructure(id);}
  }
- public void SetExplosion(float value){Explosion.SetFactor(value);if(value>0)AdvanceTutorial(4);Changed?.Invoke();}
+ public void SetExplosion(float value){Explosion.SetFactor(value);foreach(var s in Streaming.Loaded.Values)s.Moving=true;if(value>0)AdvanceTutorial(4);Changed?.Invoke();}
  public void Isolate(){if(Selection.Selected==null)return;Isolated=true;RefreshAll();Changed?.Invoke();}
  public void ExitIsolation(){Isolated=false;RefreshAll();Changed?.Invoke();}
  public void Hide(){if(Selection.Selected==null)return;Selection.Selected.Visibility=StructureVisibility.Hidden;Selection.Clear();RefreshAll();}
@@ -73,9 +73,9 @@ public sealed class LabRuntime : MonoBehaviour {
  }
  void Released(StructureInteractionAdapter a,bool valid){if(valid){ReturnToBody(a.State);if(puzzle.Remove(a.State.Data.id)){Quiz.Statistics.correctPlacements++;if(puzzle.Count==0){puzzleActive=false;Quiz.Statistics.completionTime=Time.time-puzzleStart;Status="Ensamblaje completado";}Quiz.Save();}}else if(puzzleActive){Quiz.Statistics.wrongPlacements++;Quiz.Save();}}
  public void ReturnSelected(){if(Selection.Selected!=null)ReturnToBody(Selection.Selected);}
- public void ReturnToBody(StructureState s){var a=s.Object.GetComponent<StructureInteractionAdapter>();if(a!=null){a.Released-=Released;a.DisableInteraction();Extracted.Remove(a);Destroy(a);}s.Extracted=false;s.Returning=true;s.Object.transform.SetParent(Body,true);s.Target=s.Data.originalPosition;AdvanceTutorial(3);Feedback(1.2f);Changed?.Invoke();}
+ public void ReturnToBody(StructureState s){var a=s.Object.GetComponent<StructureInteractionAdapter>();if(a!=null){a.Released-=Released;a.DisableInteraction();Extracted.Remove(a);Destroy(a);}s.Extracted=false;s.Returning=true;s.Moving=true;s.Object.transform.SetParent(Body,true);s.Target=s.Data.originalPosition;AdvanceTutorial(3);Feedback(1.2f);Changed?.Invoke();}
  public void ResetBody(){Explosion.SetFactor(0);Isolated=false;puzzle.Clear();puzzleActive=false;Body.SetPositionAndRotation(initialBodyPosition,initialBodyRotation);Body.localScale=Vector3.one;
- foreach(var s in Streaming.Loaded.Values){if(s.Extracted)ReturnToBody(s);s.Returning=true;s.Visibility=StructureVisibility.Opaque;}Systems.ResetVisibility();Selection.Clear();RefreshAll();Changed?.Invoke();}
+ foreach(var s in Streaming.Loaded.Values){if(s.Extracted)ReturnToBody(s);s.Returning=true;s.Moving=true;s.Visibility=StructureVisibility.Opaque;}Systems.ResetVisibility();Selection.Clear();RefreshAll();Changed?.Invoke();}
  public void FocusStructure(string id){if(!Streaming.Loaded.TryGetValue(id,out var s))return;var forward=ViewCamera.transform.forward;forward.y=0;forward.Normalize();var desired=ViewCamera.transform.position+forward*1.05f;Body.position+=desired-s.Object.transform.position;}
  public void CenterBody(){Body.position=initialBodyPosition;Body.rotation=initialBodyRotation;}
  public void Rotate(float angle){Body.Rotate(Vector3.up,angle,Space.World);}
@@ -87,7 +87,7 @@ public sealed class LabRuntime : MonoBehaviour {
  void AdvanceTutorial(int step){if(TutorialStep==step){TutorialStep++;if(TutorialStep>=5)SkipTutorial();}}
  public void SavePreferences(){PlayerPrefs.SetFloat("anatomy.volume",Volume);PlayerPrefs.SetString("anatomy.language",Language);PlayerPrefs.SetInt("anatomy.leftHanded",LeftHanded?1:0);PlayerPrefs.Save();Changed?.Invoke();}
  void Update(){if(!Ready)return;float t=1-Mathf.Exp(-Time.deltaTime*8);
- foreach(var s in Streaming.Loaded.Values){if(s.Extracted)continue;var tr=s.Object.transform;var target=s.Returning?s.Data.originalPosition:ExplodedViewController.Position(s.Data.originalPosition,new Vector3(0,.875f,0),Explosion.Factor);tr.localPosition=Vector3.Lerp(tr.localPosition,target,t);tr.localRotation=Quaternion.Slerp(tr.localRotation,s.Data.originalRotation,t);tr.localScale=Vector3.Lerp(tr.localScale,s.Data.originalScale,t);if(s.Returning&&Vector3.Distance(tr.localPosition,target)<.001f)s.Returning=false;}
+ foreach(var s in Streaming.Loaded.Values){if(s.Extracted||!s.Moving)continue;var tr=s.Object.transform;var target=s.Returning?s.Data.originalPosition:ExplodedViewController.Position(s.Data.originalPosition,new Vector3(0,.875f,0),Explosion.Factor);tr.localPosition=Vector3.Lerp(tr.localPosition,target,t);tr.localRotation=Quaternion.Slerp(tr.localRotation,s.Data.originalRotation,t);tr.localScale=Vector3.Lerp(tr.localScale,s.Data.originalScale,t);if(Vector3.Distance(tr.localPosition,target)<.0001f&&Quaternion.Angle(tr.localRotation,s.Data.originalRotation)<.05f){tr.localPosition=target;tr.localRotation=s.Data.originalRotation;tr.localScale=s.Data.originalScale;s.Moving=s.Returning&&Explosion.Factor>0;s.Returning=false;}}
  if(Quiz.Active)Quiz.Statistics.elapsed+=Time.deltaTime;
  pulseClock+=Time.deltaTime;if(pulseClock>.1f){pulseClock=0;foreach(var a in Extracted)if(a!=null)Refresh(a.State);}
  }

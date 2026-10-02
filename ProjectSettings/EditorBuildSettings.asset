@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1045 &1
+EditorBuildSettings:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Scenes:
+  - enabled: 1
+    path: Assets/AnatomyLab/Scenes/01_Bootstrap.unity
+    guid: 1f067e7dae1354c46b9b94bc76c6a017
+  - enabled: 1
+    path: Assets/AnatomyLab/Scenes/02_AnatomyLab.unity
+    guid: b74f668852c6e40bb8da8c12bfc262a6
+  - enabled: 1
+    path: Assets/AnatomyLab/Scenes/03_PerformanceTest.unity
+    guid: 3fde4965114c84a5dbd2f7f0e229f17e
+  m_configObjects:
+    com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 1767f42f1dce14d46a47dd41ca502f6e, type: 2}
+    com.unity.xr.openxr.settings4: {fileID: 11400000, guid: 9309d9183e3ed4ef2bd2225e472833d1, type: 2}

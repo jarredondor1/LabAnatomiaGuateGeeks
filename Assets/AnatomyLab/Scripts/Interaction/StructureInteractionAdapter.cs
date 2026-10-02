@@ -17,6 +17,7 @@ public sealed class StructureInteractionAdapter : MonoBehaviour {
  Grab.selectEntered.AddListener(_=>HapticFeedbackService.Pulse());
  Grab.selectExited.AddListener(_=>Released?.Invoke(this,CanSnap));
  }
+ public void ReleaseDesktop()=>Released?.Invoke(this,CanSnap);
  public void DisableInteraction(){if(Grab!=null){Grab.selectExited.RemoveAllListeners();Grab.enabled=false;Destroy(Grab);}var c=GetComponent<Collider>();if(c!=null){c.enabled=false;Destroy(c);}var r=GetComponent<Rigidbody>();if(r!=null)Destroy(r);}
 }
 }

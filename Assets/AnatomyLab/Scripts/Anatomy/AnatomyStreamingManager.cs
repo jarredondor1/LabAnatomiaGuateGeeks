@@ -25,7 +25,7 @@ public sealed class AnatomyStreamingManager : MonoBehaviour {
  if(generations.TryGetValue(id,out current)&&current!=generation){if(request.asset!=null)Resources.UnloadAsset(request.asset);break;}
  var bytes=request.asset as TextAsset;
  if(bytes==null){Debug.LogError("[Dataset] Missing mesh "+d.meshReference);continue;}
- var mesh=ReadMesh(bytes.bytes); Resources.UnloadAsset(bytes);
+ var mesh=ReadMesh(bytes.bytes); mesh.UploadMeshData(true); Resources.UnloadAsset(bytes);
  var go=new GameObject(d.id);go.transform.SetParent(Body,false);go.transform.localPosition=d.originalPosition;go.transform.localRotation=d.originalRotation;go.transform.localScale=d.originalScale;
  go.AddComponent<MeshFilter>().sharedMesh=mesh;var renderer=go.AddComponent<MeshRenderer>();renderer.sharedMaterial=Opaque;renderer.shadowCastingMode=ShadowCastingMode.Off;renderer.receiveShadows=false;
  var state=new StructureState(d){Object=go,Mesh=mesh,Renderer=renderer}; Loaded.Add(d.id,state); Added?.Invoke(state);

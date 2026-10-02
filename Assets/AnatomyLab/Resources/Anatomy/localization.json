@@ -1,0 +1,152 @@
+{
+  "entries": [
+    {
+      "es": "ANATOMÍA",
+      "en": "ANATOMY"
+    },
+    {
+      "es": "SISTEMAS",
+      "en": "SYSTEMS"
+    },
+    {
+      "es": "BUSCAR",
+      "en": "SEARCH"
+    },
+    {
+      "es": "ESTRUCTURA",
+      "en": "STRUCTURE"
+    },
+    {
+      "es": "EXPLORAR",
+      "en": "EXPLORE"
+    },
+    {
+      "es": "APRENDIZAJE",
+      "en": "LEARNING"
+    },
+    {
+      "es": "AJUSTES",
+      "en": "SETTINGS"
+    },
+    {
+      "es": "EXPLORAR SISTEMAS",
+      "en": "EXPLORE SYSTEMS"
+    },
+    {
+      "es": "BUSCAR ESTRUCTURA",
+      "en": "FIND STRUCTURE"
+    },
+    {
+      "es": "SELECCIÓN Y ACCIONES",
+      "en": "SELECTION AND ACTIONS"
+    },
+    {
+      "es": "CENTRAR CUERPO",
+      "en": "CENTER BODY"
+    },
+    {
+      "es": "RESTABLECER CUERPO",
+      "en": "RESET BODY"
+    },
+    {
+      "es": "SALTAR TUTORIAL",
+      "en": "SKIP TUTORIAL"
+    },
+    {
+      "es": "CAPAS ANATÓMICAS",
+      "en": "ANATOMICAL LAYERS"
+    },
+    {
+      "es": "MOSTRAR TODO",
+      "en": "SHOW ALL"
+    },
+    {
+      "es": "OCULTAR TODO",
+      "en": "HIDE ALL"
+    },
+    {
+      "es": "ESPACIO",
+      "en": "SPACE"
+    },
+    {
+      "es": "BORRAR",
+      "en": "BACKSPACE"
+    },
+    {
+      "es": "LIMPIAR BÚSQUEDA",
+      "en": "CLEAR SEARCH"
+    },
+    {
+      "es": "AISLAR / SALIR DEL AISLAMIENTO",
+      "en": "ISOLATE / EXIT ISOLATION"
+    },
+    {
+      "es": "OCULTAR",
+      "en": "HIDE"
+    },
+    {
+      "es": "TRANSPARENCIA",
+      "en": "TRANSPARENCY"
+    },
+    {
+      "es": "TRANSPARENCIA DEL SISTEMA",
+      "en": "SYSTEM TRANSPARENCY"
+    },
+    {
+      "es": "EXTRAER",
+      "en": "EXTRACT"
+    },
+    {
+      "es": "DEVOLVER A POSICIÓN",
+      "en": "RETURN TO BODY"
+    },
+    {
+      "es": "ENFOCAR",
+      "en": "FOCUS"
+    },
+    {
+      "es": "CERRAR SELECCIÓN",
+      "en": "CLOSE SELECTION"
+    },
+    {
+      "es": "GIRAR IZQUIERDA",
+      "en": "ROTATE LEFT"
+    },
+    {
+      "es": "GIRAR DERECHA",
+      "en": "ROTATE RIGHT"
+    },
+    {
+      "es": "AUMENTAR ESCALA",
+      "en": "INCREASE SCALE"
+    },
+    {
+      "es": "REDUCIR ESCALA",
+      "en": "DECREASE SCALE"
+    },
+    {
+      "es": "APRENDER HACIENDO",
+      "en": "LEARN BY DOING"
+    },
+    {
+      "es": "FICHA EDUCATIVA",
+      "en": "EDUCATIONAL CARD"
+    },
+    {
+      "es": "NUEVO RETO: ENCUENTRA…",
+      "en": "NEW CHALLENGE: FIND…"
+    },
+    {
+      "es": "VER ESTADÍSTICAS",
+      "en": "VIEW STATISTICS"
+    },
+    {
+      "es": "AJUSTES LOCALES",
+      "en": "LOCAL SETTINGS"
+    },
+    {
+      "es": "DESCARGAR SISTEMAS OCULTOS",
+      "en": "UNLOAD HIDDEN SYSTEMS"
+    }
+  ]
+}
