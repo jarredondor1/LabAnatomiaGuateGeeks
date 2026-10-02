@@ -9,3 +9,5 @@
 `03_PerformanceTest` carga todo y mide 100/500/1000/dataset completo visible durante 10 segundos por escenario, tras 2 segundos de estabilización. Escribe performance.csv en Application.persistentDataPath. Su métrica de memoria representa todo el dataset cargado en estos escenarios, no carga parcial. En APK usar adb logcat para ruta y exportar CSV desde almacenamiento de la aplicación.
 
 Distinguir siempre: Editor verified, Android build verified, Quest physical device verified. Solo el último requiere hardware. Evidencia final en IMPLEMENTATION_REPORT y PROJECT_STATUS.
+
+Resultado final: EditMode 9/9 y PlayMode 11/11. Incluye agarre mediante las interfaces de XRI y regresión de activación durante descarga.

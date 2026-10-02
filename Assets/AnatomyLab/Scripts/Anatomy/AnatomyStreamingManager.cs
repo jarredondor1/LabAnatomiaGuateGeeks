@@ -10,6 +10,7 @@ public sealed class AnatomyStreamingManager : MonoBehaviour {
  public readonly Dictionary<string,StructureState> Loaded=new Dictionary<string,StructureState>();
  public readonly HashSet<string> Loading=new HashSet<string>();
  public Transform Body; public AnatomyCatalog Catalog; public Material Opaque,Transparent;
+ public Func<string,bool> IsSystemDesired;
  public event Action<StructureState> Added; public event Action<string> Removed;
  readonly Dictionary<string,int> generations=new Dictionary<string,int>();
  readonly Dictionary<string,List<AnatomyStructure>> groups=new Dictionary<string,List<AnatomyStructure>>();
@@ -36,6 +37,7 @@ public sealed class AnatomyStreamingManager : MonoBehaviour {
  generations[id]=(generations.ContainsKey(id)?generations[id]:0)+1;
  // Wait for cancelled loader before allowing another request for the same group.
  while(Loading.Contains(id))yield return null;
+ if(IsSystemDesired!=null&&IsSystemDesired(id)){yield return LoadSystemAsync(id);yield break;}
  if(groups.TryGetValue(id,out var entries))foreach(var d in entries)if(Loaded.TryGetValue(d.id,out var state)){Removed?.Invoke(d.id);Destroy(state.Object);Destroy(state.Mesh);Loaded.Remove(d.id);}
  yield return Resources.UnloadUnusedAssets();
  }

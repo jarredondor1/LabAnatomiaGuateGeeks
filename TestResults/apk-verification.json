@@ -1,0 +1,23 @@
+{
+  "file": "/Users/joaquinarredondo/Documents/ChatGPT/3D/BodyVR/Builds/GuateGeeksAnatomyLabVR.apk",
+  "bytes": 135558209,
+  "sha256": "739f12d01bd3b1836a76c221ffcc8488759c1b9e52d9aed9c2b6fe850ec9db4d",
+  "abis": [
+    "arm64-v8a"
+  ],
+  "openxr": [
+    "lib/arm64-v8a/libUnityOpenXR.so",
+    "lib/arm64-v8a/libopenxr_loader.so",
+    "assets/bin/Data/UnitySubsystems/UnityOpenXR/UnitySubsystemsManifest.json"
+  ],
+  "buildResult": "Succeeded\nBytes: 1039075577\nTime: 00:00:28.9716480",
+  "questPhysicalDeviceVerified": false,
+  "editmode": {
+    "passed": 9,
+    "failed": 0
+  },
+  "playmode": {
+    "passed": 11,
+    "failed": 0
+  }
+}
