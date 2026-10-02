@@ -167,22 +167,22 @@ QualitySettings:
     excludedTargetPlatforms: []
   m_TextureMipmapLimitGroupNames: []
   m_PerPlatformDefaultQuality:
-    Android: 2
-    EmbeddedLinux: 5
-    GameCoreScarlett: 5
-    GameCoreXboxOne: 5
-    Kepler: 5
-    LinuxHeadlessSimulation: 5
-    Nintendo Switch: 5
-    Nintendo Switch 2: 5
-    PS4: 5
-    PS5: 5
-    QNX: 5
-    Server: 5
-    Standalone: 5
-    VisionOS: 5
-    WebGL: 3
-    Windows Store Apps: 5
-    XboxOne: 5
-    iPhone: 2
-    tvOS: 2
+    Android: 1
+    EmbeddedLinux: 1
+    GameCoreScarlett: 1
+    GameCoreXboxOne: 1
+    Kepler: 1
+    LinuxHeadlessSimulation: 1
+    Nintendo Switch: 1
+    Nintendo Switch 2: 1
+    PS4: 1
+    PS5: 1
+    QNX: 1
+    Server: 1
+    Standalone: 1
+    VisionOS: 1
+    WebGL: 1
+    Windows Store Apps: 1
+    XboxOne: 1
+    iPhone: 1
+    tvOS: 1
