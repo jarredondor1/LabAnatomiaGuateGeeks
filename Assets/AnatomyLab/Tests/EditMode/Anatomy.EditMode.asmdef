@@ -1,0 +1,1 @@
+{"name": "Anatomy.EditMode", "references": ["GuateGeeks.AnatomyLab"], "optionalUnityReferences": ["TestAssemblies"], "includePlatforms": ["Editor"]}

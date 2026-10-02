@@ -1,0 +1,1 @@
+{"name": "GuateGeeks.AnatomyLab", "references": ["Unity.InputSystem", "Unity.XR.CoreUtils", "Unity.XR.Interaction.Toolkit", "Unity.XR.Management", "Unity.XR.OpenXR", "Unity.ugui", "Unity.RenderPipelines.Universal.Runtime", "Unity.RenderPipelines.Core.Runtime"]}
