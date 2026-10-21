@@ -10,5 +10,15 @@ SourceData/
 *.sln
 *.slnx
 *.log
+*.keystore
+*.jks
+*.p12
+*.pfx
+.env
+.env.*
+TestResults/*.xml
+Documentation/Meta/
+Documentation/iarc-clasificacion-pendiente.jpg
+Documentation/meta-solicitud-enviada.jpg
 
 .utmp/

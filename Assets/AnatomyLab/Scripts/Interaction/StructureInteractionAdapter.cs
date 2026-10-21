@@ -8,6 +8,7 @@ namespace GuateGeeks.AnatomyLab.Interaction {
 public sealed class StructureInteractionAdapter : MonoBehaviour {
  public StructureState State; public Transform Body; public float Tolerance=.10f, AngleTolerance=35;
  public XRGrabInteractable Grab {get;private set;} public event Action<StructureInteractionAdapter,bool> Released;
+ bool manualGrab;
  public bool CanSnap=>Vector3.Distance(transform.position,Body.TransformPoint(State.Data.originalPosition))<Tolerance && Quaternion.Angle(transform.rotation,Body.rotation*State.Data.originalRotation)<AngleTolerance;
  public void Initialize(StructureState state,Transform body){
  State=state;Body=body;state.Extracted=true;
@@ -15,9 +16,12 @@ public sealed class StructureInteractionAdapter : MonoBehaviour {
  var rb=gameObject.AddComponent<Rigidbody>();rb.useGravity=false;rb.isKinematic=true;
  Grab=gameObject.AddComponent<XRGrabInteractable>();Grab.movementType=XRBaseInteractable.MovementType.Kinematic;Grab.throwOnDetach=false;Grab.retainTransformParent=true;
  Grab.selectEntered.AddListener(_=>HapticFeedbackService.Pulse());
- Grab.selectExited.AddListener(_=>Released?.Invoke(this,CanSnap));
+ Grab.selectExited.AddListener(OnSelectExited);
  }
+ void OnSelectExited(SelectExitEventArgs _){if(!manualGrab)Released?.Invoke(this,CanSnap);}
+ public void BeginManualGrab(){if(Grab==null)return;manualGrab=true;Grab.enabled=false;}
+ public void EndManualGrab(){if(Grab==null)return;Grab.enabled=true;manualGrab=false;}
  public void ReleaseDesktop()=>Released?.Invoke(this,CanSnap);
- public void DisableInteraction(){if(Grab!=null){Grab.selectExited.RemoveAllListeners();Grab.enabled=false;Destroy(Grab);}var c=GetComponent<Collider>();if(c!=null){c.enabled=false;Destroy(c);}var r=GetComponent<Rigidbody>();if(r!=null)Destroy(r);}
+ public void DisableInteraction(){if(Grab!=null){Grab.selectExited.RemoveAllListeners();Grab.enabled=false;Destroy(Grab);}manualGrab=false;var c=GetComponent<Collider>();if(c!=null){c.enabled=false;Destroy(c);}var r=GetComponent<Rigidbody>();if(r!=null)Destroy(r);}
 }
 }

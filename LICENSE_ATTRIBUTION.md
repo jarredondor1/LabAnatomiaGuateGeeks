@@ -13,6 +13,19 @@ BodyParts3D, © The Database Center for Life Science licensed under CC Attributi
 - Los comentarios originales de algunos OBJ citan una licencia histórica; los archivos fuente se conservan intactos. Este proyecto se basa en la licencia vigente publicada por el titular.
 - Archivo original y checksum registrados en DATASET_IMPORT_REPORT.md.
 
+## Human Reference Atlas: femenino v1.5
+
+Kristen Browne; Heidi Schlehlein. 2023. *3D Reference Organ Set for Female, v1.5*. Human Reference Atlas / HuBMAP. CC BY 4.0.
+
+- Ficha y licencia verificadas el 2026-10-02: https://lod.humanatlas.io/ref-organ/united-female/v1.5/
+- DOI: https://doi.org/10.48539/HBM352.BTSQ.586
+- Fuente directa: https://cdn.humanatlas.io/digital-objects/ref-organ/united-female/v1.5/assets/3d-vh-f-united.glb
+- Licencia: https://creativecommons.org/licenses/by/4.0/
+- 888 mallas originales; 5,557,599 triángulos. Se mantienen todas las piezas, sin combinar con el cuerpo masculino.
+- Adaptaciones: reflexión del eje Z e inversión de caras para Unity; traslación común para apoyar los pies en el escenario; pivotes locales; soldadura de vértices coincidentes; normales recalculadas; colores por sistema, traducciones y términos de búsqueda. No se deformó ni simplificó la geometría.
+- Conjunto de referencia con superficie corporal y órganos seleccionados. Su esqueleto y musculatura son parciales. Incluye ocho piezas de embarazo en una capa independiente, oculta por defecto.
+- Procedencia y checksum: `Tools/AnatomyPipeline/female-import-report.json`. Importador: `Tools/AnatomyPipeline/import_female.py` (Python + NumPy).
+
 ## Referencia funcional
 
 Human Atlas: https://github.com/ashemag/human-atlas — consultado como referencia de funciones y atribución. No se incorporó código ni geometría adaptada de ese repositorio. Se usa directamente el dataset oficial. El proyecto de referencia declara MIT para código y CC BY 4.0 para datos; aquí no se necesita redistribuir su código.
@@ -23,4 +36,4 @@ Unity 6000.6.1f1 y paquetes oficiales URP, OpenXR, XR Interaction Toolkit, Input
 
 ## Recursos propios
 
-Entorno geométrico, interfaz y tonos de feedback generados en este proyecto. No se incorporaron imágenes, música ni marcas de terceros. El código original permanece bajo los derechos del titular del proyecto; este documento no lo publica ni le asigna una licencia abierta.
+La interfaz y la geometría anatómica son de este proyecto. El panorama, la retícula, el techo, el haz de proyección, el shader `LabLogo.shader` y el recurso `GuateGeeksSDF.png` proceden del repositorio [GuateGeeks AWS VR Architect](https://github.com/GuateGeeks/aws-vr-architect), adaptados a la mesa de anatomía. `GuateGeeksFull.png` y `GeekEyes.png` son los archivos de marca proporcionados por el titular y conservan su transparencia; los ojos reciben animación en este proyecto. No se incorporaron marcas de terceros. El código original permanece bajo los derechos del titular del proyecto; este documento no lo publica ni le asigna una licencia abierta.

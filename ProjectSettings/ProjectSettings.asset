@@ -13,7 +13,7 @@ PlayerSettings:
   useOnDemandResources: 0
   accelerometerFrequency: 60
   companyName: GuateGeeks
-  productName: GuateGeeks Anatomy Lab VR
+  productName: "GuateGeeks Anatom\xEDa VR"
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
   m_SplashScreenBackgroundColor: {r: 0.12156863, g: 0.12156863, b: 0.1254902, a: 1}
@@ -149,7 +149,7 @@ PlayerSettings:
   loadStoreDebugModeEnabled: 0
   visionOSBundleVersion: 1.0
   tvOSBundleVersion: 1.0
-  bundleVersion: 0.1.0
+  bundleVersion: 0.1.7
   preloadedAssets: []
   metroInputSource: 0
   wsaTransparentSwapchain: 0
@@ -177,10 +177,10 @@ PlayerSettings:
     iPhone: 0
     tvOS: 0
   overrideDefaultApplicationIdentifier: 1
-  AndroidBundleVersionCode: 1
+  AndroidBundleVersionCode: 8
   AndroidMinSdkVersion: 32
   AndroidTargetSdkVersion: 34
-  AndroidPreferredInstallLocation: 1
+  AndroidPreferredInstallLocation: 0
   AndroidPreferredDataLocation: 1
   aotOptions: 
   stripEngineCode: 1
@@ -302,32 +302,44 @@ PlayerSettings:
   m_BuildTargetPlatformIcons:
   - m_BuildTarget: Android
     m_Icons:
-    - m_Textures: []
+    - m_Textures:
+      - {fileID: 2800000, guid: 24f48793a8b264cc8807801cef973abc, type: 3}
+      - {fileID: 2800000, guid: 24f48793a8b264cc8807801cef973abc, type: 3}
       m_Width: 432
       m_Height: 432
       m_Kind: 2
       m_SubKind: 
-    - m_Textures: []
+    - m_Textures:
+      - {fileID: 2800000, guid: 24f48793a8b264cc8807801cef973abc, type: 3}
+      - {fileID: 2800000, guid: 24f48793a8b264cc8807801cef973abc, type: 3}
       m_Width: 324
       m_Height: 324
       m_Kind: 2
       m_SubKind: 
-    - m_Textures: []
+    - m_Textures:
+      - {fileID: 2800000, guid: 24f48793a8b264cc8807801cef973abc, type: 3}
+      - {fileID: 2800000, guid: 24f48793a8b264cc8807801cef973abc, type: 3}
       m_Width: 216
       m_Height: 216
       m_Kind: 2
       m_SubKind: 
-    - m_Textures: []
+    - m_Textures:
+      - {fileID: 2800000, guid: 24f48793a8b264cc8807801cef973abc, type: 3}
+      - {fileID: 2800000, guid: 24f48793a8b264cc8807801cef973abc, type: 3}
       m_Width: 162
       m_Height: 162
       m_Kind: 2
       m_SubKind: 
-    - m_Textures: []
+    - m_Textures:
+      - {fileID: 2800000, guid: 24f48793a8b264cc8807801cef973abc, type: 3}
+      - {fileID: 2800000, guid: 24f48793a8b264cc8807801cef973abc, type: 3}
       m_Width: 108
       m_Height: 108
       m_Kind: 2
       m_SubKind: 
-    - m_Textures: []
+    - m_Textures:
+      - {fileID: 2800000, guid: 24f48793a8b264cc8807801cef973abc, type: 3}
+      - {fileID: 2800000, guid: 24f48793a8b264cc8807801cef973abc, type: 3}
       m_Width: 81
       m_Height: 81
       m_Kind: 2

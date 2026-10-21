@@ -9,6 +9,7 @@ namespace GuateGeeks.AnatomyLab.Core {
  public Quaternion originalRotation = Quaternion.identity;
  public Bounds bounds;
  public int vertexCount, triangleCount;
+ public bool localized, defaultTransparent;
 }
 [Serializable] public class AnatomySystem {
  public string id, name, displayName; public Color defaultColor = Color.white; public string[] structures; public bool defaultVisibility;
@@ -27,8 +28,10 @@ namespace GuateGeeks.AnatomyLab.Core {
 }
 public interface IAnatomyDatasetProvider { AnatomyCatalog LoadCatalog(); }
 public sealed class LocalDatasetProvider : IAnatomyDatasetProvider {
- public AnatomyCatalog LoadCatalog() {
-  var asset=Resources.Load<TextAsset>("Anatomy/anatomy_catalog");
+ public AnatomyCatalog LoadCatalog() => LoadCatalog("male");
+ public AnatomyCatalog LoadCatalog(string reference) {
+  if(reference!="male"&&reference!="female")throw new ArgumentException("Referencia anatómica desconocida: "+reference);
+  var asset=Resources.Load<TextAsset>(reference=="female"?"Anatomy/Female/anatomy_catalog":"Anatomy/anatomy_catalog");
   if(asset==null) throw new InvalidOperationException("[Dataset] Run Tools/AnatomyPipeline/import.py first.");
   var catalog=JsonUtility.FromJson<AnatomyCatalog>(asset.text); catalog.Validate(); return catalog;
  }
@@ -37,6 +40,6 @@ public enum StructureVisibility { Opaque, Transparent, Hidden }
 public sealed class StructureState {
  public readonly AnatomyStructure Data; public GameObject Object; public Mesh Mesh; public MeshRenderer Renderer;
  public StructureVisibility Visibility; public bool Extracted, Returning, Moving; public Vector3 Target;
- public StructureState(AnatomyStructure data) {Data=data; Target=data.originalPosition;}
+ public StructureState(AnatomyStructure data) {Data=data; Target=data.originalPosition; Visibility=data.defaultTransparent?StructureVisibility.Transparent:StructureVisibility.Opaque;}
 }
 }

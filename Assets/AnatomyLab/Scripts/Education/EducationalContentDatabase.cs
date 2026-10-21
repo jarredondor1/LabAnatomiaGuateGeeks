@@ -4,7 +4,7 @@ namespace GuateGeeks.AnatomyLab.Education {
 [Serializable] public class EducationalEntry {public string id,title,function,location,source;public string[] related;}
 [Serializable] public class EducationalContentDatabase {
  public EducationalEntry[] entries=Array.Empty<EducationalEntry>();
- public static EducationalContentDatabase Load(){var text=Resources.Load<TextAsset>("Anatomy/education");return text==null?new EducationalContentDatabase():JsonUtility.FromJson<EducationalContentDatabase>(text.text);}
+ public static EducationalContentDatabase Load(string reference="male"){var text=Resources.Load<TextAsset>(reference=="female"?"Anatomy/Female/education":"Anatomy/education");return text==null?new EducationalContentDatabase():JsonUtility.FromJson<EducationalContentDatabase>(text.text);}
  public EducationalEntry Find(string id){foreach(var e in entries)if(e.id==id)return e;return null;}
 }
 [Serializable] public class LearningStatistics {public int questions,correct,incorrect,correctPlacements,wrongPlacements;public float elapsed,completionTime;public float Percentage=>questions==0?0:100f*correct/questions;}

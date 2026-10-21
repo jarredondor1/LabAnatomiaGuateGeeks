@@ -1,0 +1,37 @@
+{
+  "source": "https://cdn.humanatlas.io/digital-objects/ref-organ/united-female/v1.5/assets/3d-vh-f-united.glb",
+  "sha256": "472567a56896b9b7890508da6501fbf858e56aaa30745365f7a71ade782b529c",
+  "license": "https://creativecommons.org/licenses/by/4.0/",
+  "attribution": "Kristen Browne y Heidi Schlehlein · Human Reference Atlas / HuBMAP · referencia femenina v1.5 (2023) · CC BY 4.0 · doi:10.48539/HBM352.BTSQ.586",
+  "meshes": 888,
+  "triangles": 5557599,
+  "vertices": 2798773,
+  "sourceOrigin": {
+    "x": -0.005840525031089783,
+    "y": -0.7947609424591064,
+    "z": -0.05797627940773964
+  },
+  "heightMeters": 1.6663482189178467,
+  "adaptations": [
+    "Conversión glTF a Unity: reflexión del eje Z y orden de caras invertido",
+    "Traslación común a la base del escenario, pivotes individuales y soldadura de vértices coincidentes",
+    "Sin simplificación, deformación ni mezcla con anatomía masculina",
+    "Colores por sistema y nombres de interfaz en español; etiquetas originales conservadas para búsqueda"
+  ],
+  "coverage": "Superficie corporal y órganos seleccionados. Esqueleto y musculatura parciales. Capa de embarazo independiente, oculta al inicio.",
+  "systems": {
+    "integumentary": 17,
+    "reproductive": 38,
+    "urinary": 87,
+    "digestive": 61,
+    "skeleton": 91,
+    "cardiovascular": 36,
+    "respiratory": 70,
+    "nervous": 362,
+    "muscular": 16,
+    "arterial": 31,
+    "venous": 57,
+    "lymphatic": 14,
+    "pregnancy": 8
+  }
+}

@@ -45,7 +45,7 @@ public sealed class AnatomyStreamingManager : MonoBehaviour {
  using(var r=new BinaryReader(new MemoryStream(bytes))) {
  int nv=r.ReadInt32(),nt=r.ReadInt32();if(nv<=0||nt<=0||nv>2000000||nt>10000000)throw new InvalidDataException("Invalid geometry header");
  var v=new Vector3[nv];var t=new int[nt*3];for(int i=0;i<nv;i++)v[i]=new Vector3(r.ReadSingle(),r.ReadSingle(),r.ReadSingle());for(int i=0;i<t.Length;i++)t[i]=r.ReadInt32();
- var m=new Mesh{name="BodyParts3D",indexFormat=nv>65535?IndexFormat.UInt32:IndexFormat.UInt16};m.vertices=v;m.triangles=t;m.RecalculateNormals();m.RecalculateBounds();return m;
+ var m=new Mesh{name="Estructura anatómica",indexFormat=nv>65535?IndexFormat.UInt32:IndexFormat.UInt16};m.vertices=v;m.triangles=t;m.RecalculateNormals();m.RecalculateBounds();return m;
  }
  }
  void OnDestroy(){foreach(var state in Loaded.Values)if(state.Mesh!=null)Destroy(state.Mesh);}
